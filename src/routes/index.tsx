@@ -25,11 +25,11 @@ export const Route = createFileRoute("/")({
         content:
           "Aulas de violão aos sábados com o professor Ezequiel Pereira. Jornada gamificada, mentoria entre alunos e IA musical para tirar dúvidas.",
       },
-      { property: "og:title", content: "Escola de Violão Ezequiel Pereira" },
+      { property: "og:title", content: "Escola de Violão Ezequiel Pereira · Portal Califórnia" },
       {
         property: "og:description",
         content:
-          "Do Iniciado ao Mestre: aulas presenciais em Portal Califórnia com sistema de patentes, mentoria e IA musical.",
+          "Aulas de violão aos sábados com o professor Ezequiel Pereira. Jornada gamificada, mentoria entre alunos e IA musical para tirar dúvidas.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

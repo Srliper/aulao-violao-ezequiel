@@ -84,21 +84,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Escola de Violão Ezequiel Pereira" },
+      { title: "Escola de Violão Ezequiel Pereira · Portal Califórnia" },
       {
         name: "description",
         content:
-          "Aulas de violão em Portal Califórnia com o professor Ezequiel Pereira: gamificação, mentoria e IA musical.",
+          "Aulas de violão aos sábados com o professor Ezequiel Pereira. Jornada gamificada, mentoria entre alunos e IA musical para tirar dúvidas.",
       },
       { name: "author", content: "Ezequiel Pereira" },
-      { property: "og:title", content: "Escola de Violão Ezequiel Pereira" },
+      { property: "og:title", content: "Escola de Violão Ezequiel Pereira · Portal Califórnia" },
       {
         property: "og:description",
         content:
-          "Uma jornada musical do Iniciado ao Mestre — aulas presenciais, sistema de patentes e IA para tirar dúvidas de violão.",
+          "Aulas de violão aos sábados com o professor Ezequiel Pereira. Jornada gamificada, mentoria entre alunos e IA musical para tirar dúvidas.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Escola de Violão Ezequiel Pereira · Portal Califórnia" },
+      { name: "twitter:description", content: "Aulas de violão aos sábados com o professor Ezequiel Pereira. Jornada gamificada, mentoria entre alunos e IA musical para tirar dúvidas." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2b0569c2-271e-407a-9705-97dff9290a22" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2b0569c2-271e-407a-9705-97dff9290a22" },
     ],
     links: [
       {
