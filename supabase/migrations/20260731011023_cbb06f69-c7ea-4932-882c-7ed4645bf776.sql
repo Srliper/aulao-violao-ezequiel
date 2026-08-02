@@ -1,0 +1,2 @@
+ALTER TABLE public.notification_prefs ADD COLUMN IF NOT EXISTS class_reminder_minutes integer NOT NULL DEFAULT 60;
+ALTER TABLE public.push_devices ADD COLUMN IF NOT EXISTS class_reminder_minutes integer;

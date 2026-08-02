@@ -1,0 +1,4 @@
+CREATE POLICY galeria_read_authenticated ON storage.objects FOR SELECT TO authenticated USING (bucket_id = 'galeria');
+CREATE POLICY galeria_insert_admin ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'galeria' AND public.has_role(auth.uid(), 'admin'::public.app_role));
+CREATE POLICY galeria_update_admin ON storage.objects FOR UPDATE TO authenticated USING (bucket_id = 'galeria' AND public.has_role(auth.uid(), 'admin'::public.app_role)) WITH CHECK (bucket_id = 'galeria' AND public.has_role(auth.uid(), 'admin'::public.app_role));
+CREATE POLICY galeria_delete_admin ON storage.objects FOR DELETE TO authenticated USING (bucket_id = 'galeria' AND public.has_role(auth.uid(), 'admin'::public.app_role));
