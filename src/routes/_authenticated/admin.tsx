@@ -121,6 +121,9 @@ function AdminPage() {
             </Link>
           </Button>
           <Button asChild variant="outline" className="gap-2">
+            <Link to="/convites">Convidar alunos</Link>
+          </Button>
+          <Button asChild variant="outline" className="gap-2">
             <Link to="/aulas">Agenda de sábado</Link>
           </Button>
           <Button asChild variant="outline" className="gap-2">

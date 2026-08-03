@@ -15,6 +15,7 @@ import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConviteTokenRouteImport } from './routes/convite.$token'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AuthenticatedTarefasRouteImport } from './routes/_authenticated/tarefas'
 import { Route as AuthenticatedRepertorioRouteImport } from './routes/_authenticated/repertorio'
@@ -25,6 +26,7 @@ import { Route as AuthenticatedMensagensRouteImport } from './routes/_authentica
 import { Route as AuthenticatedGaleriaRouteImport } from './routes/_authenticated/galeria'
 import { Route as AuthenticatedDispositivosRouteImport } from './routes/_authenticated/dispositivos'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedConvitesRouteImport } from './routes/_authenticated/convites'
 import { Route as AuthenticatedChatRouteImport } from './routes/_authenticated/chat'
 import { Route as AuthenticatedChamadaRouteImport } from './routes/_authenticated/chamada'
 import { Route as AuthenticatedCertificadoRouteImport } from './routes/_authenticated/certificado'
@@ -58,6 +60,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConviteTokenRoute = ConviteTokenRouteImport.update({
+  id: '/convite/$token',
+  path: '/convite/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -111,6 +118,11 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedConvitesRoute = AuthenticatedConvitesRouteImport.update({
+  id: '/convites',
+  path: '/convites',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedChatRoute = AuthenticatedChatRouteImport.update({
   id: '/chat',
   path: '/chat',
@@ -149,6 +161,7 @@ export interface FileRoutesByFullPath {
   '/certificado': typeof AuthenticatedCertificadoRoute
   '/chamada': typeof AuthenticatedChamadaRoute
   '/chat': typeof AuthenticatedChatRoute
+  '/convites': typeof AuthenticatedConvitesRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/dispositivos': typeof AuthenticatedDispositivosRoute
   '/galeria': typeof AuthenticatedGaleriaRoute
@@ -159,6 +172,7 @@ export interface FileRoutesByFullPath {
   '/repertorio': typeof AuthenticatedRepertorioRoute
   '/tarefas': typeof AuthenticatedTarefasRoute
   '/api/chat': typeof ApiChatRoute
+  '/convite/$token': typeof ConviteTokenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -171,6 +185,7 @@ export interface FileRoutesByTo {
   '/certificado': typeof AuthenticatedCertificadoRoute
   '/chamada': typeof AuthenticatedChamadaRoute
   '/chat': typeof AuthenticatedChatRoute
+  '/convites': typeof AuthenticatedConvitesRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/dispositivos': typeof AuthenticatedDispositivosRoute
   '/galeria': typeof AuthenticatedGaleriaRoute
@@ -181,6 +196,7 @@ export interface FileRoutesByTo {
   '/repertorio': typeof AuthenticatedRepertorioRoute
   '/tarefas': typeof AuthenticatedTarefasRoute
   '/api/chat': typeof ApiChatRoute
+  '/convite/$token': typeof ConviteTokenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -195,6 +211,7 @@ export interface FileRoutesById {
   '/_authenticated/certificado': typeof AuthenticatedCertificadoRoute
   '/_authenticated/chamada': typeof AuthenticatedChamadaRoute
   '/_authenticated/chat': typeof AuthenticatedChatRoute
+  '/_authenticated/convites': typeof AuthenticatedConvitesRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/dispositivos': typeof AuthenticatedDispositivosRoute
   '/_authenticated/galeria': typeof AuthenticatedGaleriaRoute
@@ -205,6 +222,7 @@ export interface FileRoutesById {
   '/_authenticated/repertorio': typeof AuthenticatedRepertorioRoute
   '/_authenticated/tarefas': typeof AuthenticatedTarefasRoute
   '/api/chat': typeof ApiChatRoute
+  '/convite/$token': typeof ConviteTokenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -219,6 +237,7 @@ export interface FileRouteTypes {
     | '/certificado'
     | '/chamada'
     | '/chat'
+    | '/convites'
     | '/dashboard'
     | '/dispositivos'
     | '/galeria'
@@ -229,6 +248,7 @@ export interface FileRouteTypes {
     | '/repertorio'
     | '/tarefas'
     | '/api/chat'
+    | '/convite/$token'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -241,6 +261,7 @@ export interface FileRouteTypes {
     | '/certificado'
     | '/chamada'
     | '/chat'
+    | '/convites'
     | '/dashboard'
     | '/dispositivos'
     | '/galeria'
@@ -251,6 +272,7 @@ export interface FileRouteTypes {
     | '/repertorio'
     | '/tarefas'
     | '/api/chat'
+    | '/convite/$token'
   id:
     | '__root__'
     | '/'
@@ -264,6 +286,7 @@ export interface FileRouteTypes {
     | '/_authenticated/certificado'
     | '/_authenticated/chamada'
     | '/_authenticated/chat'
+    | '/_authenticated/convites'
     | '/_authenticated/dashboard'
     | '/_authenticated/dispositivos'
     | '/_authenticated/galeria'
@@ -274,6 +297,7 @@ export interface FileRouteTypes {
     | '/_authenticated/repertorio'
     | '/_authenticated/tarefas'
     | '/api/chat'
+    | '/convite/$token'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -284,6 +308,7 @@ export interface RootRouteChildren {
   PatentesRoute: typeof PatentesRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   ApiChatRoute: typeof ApiChatRoute
+  ConviteTokenRoute: typeof ConviteTokenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -328,6 +353,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/convite/$token': {
+      id: '/convite/$token'
+      path: '/convite/$token'
+      fullPath: '/convite/$token'
+      preLoaderRoute: typeof ConviteTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -400,6 +432,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/convites': {
+      id: '/_authenticated/convites'
+      path: '/convites'
+      fullPath: '/convites'
+      preLoaderRoute: typeof AuthenticatedConvitesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/chat': {
       id: '/_authenticated/chat'
       path: '/chat'
@@ -444,6 +483,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCertificadoRoute: typeof AuthenticatedCertificadoRoute
   AuthenticatedChamadaRoute: typeof AuthenticatedChamadaRoute
   AuthenticatedChatRoute: typeof AuthenticatedChatRoute
+  AuthenticatedConvitesRoute: typeof AuthenticatedConvitesRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedDispositivosRoute: typeof AuthenticatedDispositivosRoute
   AuthenticatedGaleriaRoute: typeof AuthenticatedGaleriaRoute
@@ -461,6 +501,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCertificadoRoute: AuthenticatedCertificadoRoute,
   AuthenticatedChamadaRoute: AuthenticatedChamadaRoute,
   AuthenticatedChatRoute: AuthenticatedChatRoute,
+  AuthenticatedConvitesRoute: AuthenticatedConvitesRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedDispositivosRoute: AuthenticatedDispositivosRoute,
   AuthenticatedGaleriaRoute: AuthenticatedGaleriaRoute,
@@ -483,17 +524,8 @@ const rootRouteChildren: RootRouteChildren = {
   PatentesRoute: PatentesRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   ApiChatRoute: ApiChatRoute,
+  ConviteTokenRoute: ConviteTokenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
