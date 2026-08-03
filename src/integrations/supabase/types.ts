@@ -711,6 +711,51 @@ export type Database = {
           },
         ]
       }
+      student_invites: {
+        Row: {
+          class_time: string
+          created_at: string
+          created_by: string
+          email: string | null
+          expires_at: string
+          full_name: string
+          id: string
+          phone: string | null
+          token: string
+          updated_at: string
+          used_at: string | null
+          used_by: string | null
+        }
+        Insert: {
+          class_time?: string
+          created_at?: string
+          created_by: string
+          email?: string | null
+          expires_at?: string
+          full_name: string
+          id?: string
+          phone?: string | null
+          token: string
+          updated_at?: string
+          used_at?: string | null
+          used_by?: string | null
+        }
+        Update: {
+          class_time?: string
+          created_at?: string
+          created_by?: string
+          email?: string | null
+          expires_at?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          token?: string
+          updated_at?: string
+          used_at?: string | null
+          used_by?: string | null
+        }
+        Relationships: []
+      }
       students: {
         Row: {
           active: boolean
