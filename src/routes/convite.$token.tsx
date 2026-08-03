@@ -38,7 +38,7 @@ export const Route = createFileRoute("/convite/$token")({
       <p className="text-sm text-muted-foreground">Peça um novo link ao professor.</p>
     </Shell>
   ),
-  component: ConvitePage;
+  component: ConvitePage,
 });
 
 function Shell({ title, children }: { title: string; children: React.ReactNode }) {
