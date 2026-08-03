@@ -26,6 +26,7 @@ import { Route as AuthenticatedMensagensRouteImport } from './routes/_authentica
 import { Route as AuthenticatedGaleriaRouteImport } from './routes/_authenticated/galeria'
 import { Route as AuthenticatedDispositivosRouteImport } from './routes/_authenticated/dispositivos'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedConvitesRouteImport } from './routes/_authenticated/convites'
 import { Route as AuthenticatedChatRouteImport } from './routes/_authenticated/chat'
 import { Route as AuthenticatedChamadaRouteImport } from './routes/_authenticated/chamada'
 import { Route as AuthenticatedCertificadoRouteImport } from './routes/_authenticated/certificado'
@@ -117,6 +118,11 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedConvitesRoute = AuthenticatedConvitesRouteImport.update({
+  id: '/convites',
+  path: '/convites',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedChatRoute = AuthenticatedChatRouteImport.update({
   id: '/chat',
   path: '/chat',
@@ -155,6 +161,7 @@ export interface FileRoutesByFullPath {
   '/certificado': typeof AuthenticatedCertificadoRoute
   '/chamada': typeof AuthenticatedChamadaRoute
   '/chat': typeof AuthenticatedChatRoute
+  '/convites': typeof AuthenticatedConvitesRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/dispositivos': typeof AuthenticatedDispositivosRoute
   '/galeria': typeof AuthenticatedGaleriaRoute
@@ -178,6 +185,7 @@ export interface FileRoutesByTo {
   '/certificado': typeof AuthenticatedCertificadoRoute
   '/chamada': typeof AuthenticatedChamadaRoute
   '/chat': typeof AuthenticatedChatRoute
+  '/convites': typeof AuthenticatedConvitesRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/dispositivos': typeof AuthenticatedDispositivosRoute
   '/galeria': typeof AuthenticatedGaleriaRoute
@@ -203,6 +211,7 @@ export interface FileRoutesById {
   '/_authenticated/certificado': typeof AuthenticatedCertificadoRoute
   '/_authenticated/chamada': typeof AuthenticatedChamadaRoute
   '/_authenticated/chat': typeof AuthenticatedChatRoute
+  '/_authenticated/convites': typeof AuthenticatedConvitesRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/dispositivos': typeof AuthenticatedDispositivosRoute
   '/_authenticated/galeria': typeof AuthenticatedGaleriaRoute
@@ -228,6 +237,7 @@ export interface FileRouteTypes {
     | '/certificado'
     | '/chamada'
     | '/chat'
+    | '/convites'
     | '/dashboard'
     | '/dispositivos'
     | '/galeria'
@@ -251,6 +261,7 @@ export interface FileRouteTypes {
     | '/certificado'
     | '/chamada'
     | '/chat'
+    | '/convites'
     | '/dashboard'
     | '/dispositivos'
     | '/galeria'
@@ -275,6 +286,7 @@ export interface FileRouteTypes {
     | '/_authenticated/certificado'
     | '/_authenticated/chamada'
     | '/_authenticated/chat'
+    | '/_authenticated/convites'
     | '/_authenticated/dashboard'
     | '/_authenticated/dispositivos'
     | '/_authenticated/galeria'
@@ -420,6 +432,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/convites': {
+      id: '/_authenticated/convites'
+      path: '/convites'
+      fullPath: '/convites'
+      preLoaderRoute: typeof AuthenticatedConvitesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/chat': {
       id: '/_authenticated/chat'
       path: '/chat'
@@ -464,6 +483,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCertificadoRoute: typeof AuthenticatedCertificadoRoute
   AuthenticatedChamadaRoute: typeof AuthenticatedChamadaRoute
   AuthenticatedChatRoute: typeof AuthenticatedChatRoute
+  AuthenticatedConvitesRoute: typeof AuthenticatedConvitesRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedDispositivosRoute: typeof AuthenticatedDispositivosRoute
   AuthenticatedGaleriaRoute: typeof AuthenticatedGaleriaRoute
@@ -481,6 +501,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCertificadoRoute: AuthenticatedCertificadoRoute,
   AuthenticatedChamadaRoute: AuthenticatedChamadaRoute,
   AuthenticatedChatRoute: AuthenticatedChatRoute,
+  AuthenticatedConvitesRoute: AuthenticatedConvitesRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedDispositivosRoute: AuthenticatedDispositivosRoute,
   AuthenticatedGaleriaRoute: AuthenticatedGaleriaRoute,
