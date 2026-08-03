@@ -17,7 +17,7 @@ const accountInput = inviteInput.extend({
   password: z.string().min(6).max(72),
 });
 
-const tokenInput = z.object({ token: z.string().trim().min(10).max(64) });
+const tokenInput = z.object({ token: z.string().trim().min(1).max(64) });
 
 const acceptInput = tokenInput.extend({
   email: z.string().trim().email().max(255),
